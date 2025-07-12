@@ -15,4 +15,5 @@ fashion and reduce textile waste by encouraging users to reuse wearable garments
 discarding them.
 
 submission video link: 
+link1 Main video: https://drive.google.com/file/d/17QIQdrIddpvixHVE7s930p8t6BRDxBA2/view?usp=sharing
 link2 explaining a bonus part: https://drive.google.com/file/d/16cjEf7DbAOzSdgVFqIHY7bGuUsibyCXD/view?usp=drive_link
