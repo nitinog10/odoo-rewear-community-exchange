@@ -1,0 +1,94 @@
+ReWear App – Full Workflow Documentation
+🏠 1. Home Page (Public)
+Components:
+- Navbar (ReWear logo + Login/Signup)
+- Hero section with CTAs → "Start Swapping", "Browse Items"
+- Featured Items Carousel
+- How It Works (3-step info)
+- Footer (About Us, Contact, Socials)
+
+Logic:
+- Public view — no login required
+- Featured items fetched from Firestore (isFeatured: true)
+🔑 2. User Authentication
+Options:
+- Email/Password login via Firebase
+- Signup → profile creation (name, size, style preferences)
+- New users get +5 points for profile completion
+🧑‍💼 3. User Dashboard (Post-Login)
+Sections:
+- 👤 Profile: Name, Picture, Points Balance
+- 📦 My Items: Items listed by user
+- 🔁 Swaps: Ongoing / Past swap history
+- 💡 AI Suggestions: Outfit recommendation (based on color, category)
+- 🎁 Donations Made: History of items donated
+- 🧩 Points Earned + Redeemed Tracker
+- 📋 Option: “List a New Item” / “Donate an Item”
+🆕 4. List an Item / Donate an Item
+Common Fields:
+- Title, Description, Images
+- Category (Men/Women/Kids), Type (Shirt, Pants...), Size, Condition
+- Tags (optional: “Branded”, “Casual” etc.)
+
+Logic:
+- If “Donation” is selected → Item directly added to Donation Pool
+- On donation success → User gets +20 fixed points
+🤖 5. AI Suggestions Engine (New Feature)
+Trigger Points:
+- On viewing any item → AI model suggests matching items
+  e.g., If user views a White Shirt, system recommends:
+  - Brown/Beige trousers
+  - Light blue jeans
+  - Black belt or shoes
+
+Logic (Backend/Firebase):
+- Based on item’s color, type, and category
+- Pull similar category items with complementary attributes
+- Show in “Suggested Matches” carousel under item detail page
+🔄 6. Swap & Points Redemption System
+When viewing an item:
+Show 3 options:
+- Swap Request – User selects one of their items to offer
+- Swap + Points – If value mismatch, system calculates gap, asks to pay difference
+- Redeem via Points – If user has enough points, direct redemption
+
+Points Logic:
+- Upload item → +10 points
+- Successful swap → +20 points
+- Positive feedback → +5 points
+- Referral → +15 points
+- Donation → +20 points
+- Redeem item → –X points (as per item value)
+- Swap + Points → subtract partial points if needed
+📝 7. About Us Page
+Purpose:
+- Communicate to judges that you understood the assignment
+
+Mention:
+- The environmental impact you’re targeting
+- The thought process behind swap + point system
+- Real challenges in barter/trade systems and how your model fixes them
+- Future plans like community-driven drop points, delivery optimization
+❤️ 8. Donation Flow
+Steps:
+- User chooses "Donate Item"
+- Same listing process, but donation flag set to true
+- Admins auto-approve it OR let users redeem those for free
+- User gets +20 points as fixed reward
+🛠️ 9. Admin Panel
+Admin Features:
+- Login via special admin flag (Firebase role/tag)
+- View all items (pending approval)
+- Approve/Reject listings
+- Moderate spam reports
+- Track donations, featured items, and flagged content
+- Mark items as “Featured” for homepage
+📱 10. App Flow Summary (Screen-by-Screen)
+Screen              Key Components
+Home Page           Hero, Carousel, CTAs
+Login/Signup        Firebase Auth
+Dashboard           Profile, My Items, AI Suggestions, Points
+Item Detail         Images, Description, Swap Options, AI Matches
+Add Item/Donate     Form + Image Upload
+About Us            Static content
+Admin Panel         Approvals, Moderation, Flags

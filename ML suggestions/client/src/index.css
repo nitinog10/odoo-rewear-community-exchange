@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(130, 39%, 16%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* ReWear Custom Colors */
+  --forest: hsl(130, 39%, 16%);
+  --sage: hsl(84, 27%, 66%);
+  --earth: hsl(38, 25%, 54%);
+  --terracotta: hsl(30, 52%, 59%);
+  --gold: hsl(51, 100%, 50%);
+  --rose-gold: hsl(348, 52%, 81%);
+  --warm-white: hsl(60, 9%, 98%);
+  --charcoal: hsl(0, 0%, 18%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(130, 39%, 16%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-forest { color: var(--forest); }
+  .text-sage { color: var(--sage); }
+  .text-earth { color: var(--earth); }
+  .text-terracotta { color: var(--terracotta); }
+  .text-gold { color: var(--gold); }
+  .text-rose-gold { color: var(--rose-gold); }
+  .text-warm-white { color: var(--warm-white); }
+  .text-charcoal { color: var(--charcoal); }
+  
+  .bg-forest { background-color: var(--forest); }
+  .bg-sage { background-color: var(--sage); }
+  .bg-earth { background-color: var(--earth); }
+  .bg-terracotta { background-color: var(--terracotta); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-rose-gold { background-color: var(--rose-gold); }
+  .bg-warm-white { background-color: var(--warm-white); }
+  .bg-charcoal { background-color: var(--charcoal); }
+  
+  .border-forest { border-color: var(--forest); }
+  .border-sage { border-color: var(--sage); }
+  .border-earth { border-color: var(--earth); }
+  .border-terracotta { border-color: var(--terracotta); }
+  .border-gold { border-color: var(--gold); }
+  .border-rose-gold { border-color: var(--rose-gold); }
+  
+  .gradient-forest-sage {
+    background: linear-gradient(135deg, var(--forest), var(--sage));
+  }
+  
+  .gradient-gold-terracotta {
+    background: linear-gradient(135deg, var(--gold), var(--terracotta));
+  }
+  
+  .gradient-rose-gold-terracotta {
+    background: linear-gradient(135deg, var(--rose-gold), var(--terracotta));
+  }
+  
+  .gradient-warm-white-sage {
+    background: linear-gradient(135deg, var(--warm-white), var(--sage));
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-up {
+    animation: scaleUp 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(60, 4.8%, 95.9%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--forest);
+}
